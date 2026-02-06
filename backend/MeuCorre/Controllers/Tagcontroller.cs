@@ -57,7 +57,7 @@ namespace MeuCorre.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeletarTag([FromBody] DeletarTagCommad command)
+        public async Task<IActionResult> DeletarTag([FromBody] DeletarTagCommand command)
         {
             var (mensagem, sucesso) = await _mediator.Send(command);
             if (sucesso)
@@ -73,7 +73,7 @@ namespace MeuCorre.Controllers
         [HttpPatch("ativar/{id}")]
         public async Task<IActionResult> AtivarCategoria(Guid id)
         {
-            var command = new AtivarTagCommand { CategoriaId = id };
+            var command = new AtivarTagCommand { Id = id };
             var (mensagem, sucesso) = await _mediator.Send(command);
             if (sucesso)
             {
@@ -89,7 +89,7 @@ namespace MeuCorre.Controllers
         [HttpPatch("inativar/{id}")]
         public async Task<IActionResult> InativarTag(Guid id)
         {
-            var command = new InativarTagCommand { CategoriaId = id };
+            var command = new InativarTagCommand {Id = id };
             var (mensagem, sucesso) = await _mediator.Send(command);
             if (sucesso)
             {

@@ -9,16 +9,17 @@ using System.Threading.Tasks;
 namespace MeuCorre.Application.UseCases.Tags.Commands
 {
 
-    public class CriarTagCommand
+    public class CriarTagCommand : IRequest<(string, bool)>
     {
         [Required(ErrorMessage = "ID do usuário é obrigatório")]
         public required Guid UsuarioId { get; set; }
 
         [Required(ErrorMessage = "Nome é obrigatório")]
+        public required string Nome { get; set; }
 
-        public required string cor { get; set; }
 
         [Required(ErrorMessage = "cor é obrigatório")]
+        public required string cor { get; set; }
 
     }
     internal class CriarTagCommandHandler : IRequestHandler<CriarTagCommand, (string, bool)>

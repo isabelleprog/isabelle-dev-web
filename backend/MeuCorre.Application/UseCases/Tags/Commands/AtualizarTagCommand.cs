@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using MeuCorre.Application.UseCases.Tags.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,19 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MeuCorre.Application.UseCases.Tags
+namespace MeuCorre.Application.UseCases.Tags.Commands
 {
-   public class AtualizarTagCommand
+    public class AtualizarTagCommand : IRequest<(string, bool)>
     {
         [Required(ErrorMessage = "ID do usuário é obrigatório")]
         public required Guid UsuarioId { get; set; }
 
         [Required(ErrorMessage = "Nome é obrigatório")]
-
-        public required string cor { get; set; }
+        public required string Nome { get; set; }
 
         [Required(ErrorMessage = "cor é obrigatório")]
-
+        public required string cor { get; set; }
     }
     internal class AtualizarTagCommandHandler : IRequestHandler<AtualizarTagCommand, (string, bool)>
     {

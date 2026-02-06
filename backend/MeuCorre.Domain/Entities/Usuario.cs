@@ -14,7 +14,7 @@ namespace MeuCorre.Domain.Entities
         // o usuário pode ter várias categorias
         public virtual ICollection<Categoria> Categorias { get; set; }
 
-
+        public virtual ICollection<Tag> Tags { get; set; }
         //Construtor para criar um novo usuário.
         //Construtor é a primeira coisa que é executada quando uma classe é instanciada.
         public Usuario(string nome, string email, string senha, DateTime dataNascimento, bool ativo)

@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using MeuCorre.Application.UseCases.Tags.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,15 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MeuCorre.Application.UseCases.Tags
+namespace MeuCorre.Application.UseCases.Tags.Commands
 {
-    public class DeletarTagCommand
+    public class DeletarTagCommand :IRequest<(string, bool)>
     {
-        required(ErrorMessage = "ID do usuário é obrigatório")]
-        public required Guid UsuarioId { get; set; }
-
-        [Required(ErrorMessage = "Id é obrigatório")]
-
+        [Required(ErrorMessage = "ID da Tag é obrigatório")]
+        public required Guid Id { get; set; }
     }
     internal class DeletarTagCommandHandler : IRequestHandler<DeletarTagCommand, (string, bool)>
     {
