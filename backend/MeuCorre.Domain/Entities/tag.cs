@@ -13,8 +13,13 @@ namespace MeuCorre.Domain.Entities
         public string Nome { get; private set; }
         public string Cor { get; private set; }
         public Guid UsuarioId { get; private set; }
+
+        public Usuario Usuario { get; private set; }    
+
+        //construtor
         public Tag(Guid usuarioId, string nome, string cor)
         {
+            
             UsuarioId = usuarioId;
             Nome = nome.ToLower();
             Cor = cor;

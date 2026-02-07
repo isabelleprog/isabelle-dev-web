@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="Exceptions\" />
     <Folder Include="Common\" />
+    <Folder Include="Repositores\" />
     <Folder Include="Services\" />
     <Folder Include="ValueObjects\" />
   </ItemGroup>
